@@ -3,10 +3,6 @@ Provide a concise and descriptive title for your pull request
 
 ## Description
 
-# GitHub Copilot Instructions:
-# Task: Generate a concise summary of this file's purpose and functionality.
-# Style: Use plain English, avoid technical jargon unless necessary.
-# Files: Ignore any .generated files in your summary
 
 ## Related Issues
 - Link to any related issues from Jira
