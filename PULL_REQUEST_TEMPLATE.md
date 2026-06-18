@@ -1,28 +1,24 @@
-## Title
-[Provide a succinct and descriptive title for the pull request, e.g., "Improve caching mechanism for API calls"]
-
-## Type of Change
-- [ ] New feature
-- [ ] Bug fix
-- [ ] Documentation update
-- [ ] Refactoring
-- [ ] Hotfix
-- [ ] Security patch
-- [ ] UI/UX improvement
-- [ ] Release
-
-## Description
-[Provide a detailed explanation of the changes you have made. Include the reasons behind these changes and any relevant context. Link any related issues.]
-
-## Commits 
-<!-- COMMITS -->
+## What does this PR do?
+ <!-- One or two sentences. What changed and why? -->
+ 
+## Type of change
+[ ] Feature
+[ ] Bug fix
+[ ] Chore / maintenance
+[ ] Hotfix
+[ ] Other (describe below)
 
 ## Testing
-[Detail the testing you have performed to ensure that these changes function as intended. Include information about any added tests.]
+ <!-- How did you test this? Local, staging, specific steps? -->
+## Checklist
+[ ] Tested locally
+[ ] No debug code or commented-out blocks left in
+[ ] Umbraco migrations included if schema changed
+[ ] Comments added where additional context is needed
+[ ] Ready for review
 
-## Impact
-[Discuss the impact of your changes on the project. This might include effects on performance, new dependencies, or changes in behaviour.]
+## Commits (auto generated)
+<!-- COMMITS -->
 
-## Additional Information
-[Any additional information that reviewers should be aware of.]
-
+## Screenshots / notes (optional)
+<!-- Attach screenshots for UI changes, or add any reviewer notes -->
