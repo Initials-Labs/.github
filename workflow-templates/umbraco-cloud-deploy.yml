@@ -1,0 +1,42 @@
+# Deploys this Umbraco Cloud project via the shared reusable pipeline in
+# initials-labs/umbraco-cloud-workflows. Triggered by pushing a version tag.
+#
+# BEFORE THIS WILL RUN, set up the following in this repo (one-time):
+#   1. cloud.gitignore  - copy the .gitignore from THIS project's Umbraco Cloud
+#                         git repo and commit it in the repo root (required).
+#   2. Secrets (Settings > Secrets and variables > Actions):
+#        PROJECT_ID              - Umbraco Cloud project ID
+#        UMBRACO_CLOUD_API_KEY   - Cloud portal > project settings > CI/CD
+#      Variable:
+#        TARGET_ENVIRONMENT_ALIAS - e.g. development
+#   3. Settings > Actions > General > Workflow permissions > Read and write
+#      (the sync step commits Cloud changes back to the branch), and allow the
+#      Actions bot to bypass branch protection on the deploy branch.
+#
+# To deploy: push a semver tag, e.g.  git tag -a v1.0.0 -m "Deploy" && git push origin v1.0.0
+# Full docs: initials-labs/umbraco-cloud-workflows (README.md / SETUP.md)
+
+name: Deploy to Umbraco Cloud
+
+on:
+  push:
+    tags:
+      # Version tags, with or without a leading v (e.g. 1.0.2 or v1.0.2).
+      - '[0-9]+.[0-9]+.[0-9]+'
+      - 'v[0-9]+.[0-9]+.[0-9]+'
+  workflow_dispatch:
+
+permissions:
+  contents: write
+
+jobs:
+  deploy:
+    uses: initials-labs/umbraco-cloud-workflows/.github/workflows/umbraco-cloud-deploy.yml@1.1.1
+    with:
+      target-environment-alias: ${{ vars.TARGET_ENVIRONMENT_ALIAS }}
+      # Tag pushes check out in detached HEAD; deploy a branch so the Cloud sync
+      # step can commit changes back. Change to your default branch if not main.
+      checkout-ref: main
+    secrets:
+      project-id: ${{ secrets.PROJECT_ID }}
+      api-key: ${{ secrets.UMBRACO_CLOUD_API_KEY }}

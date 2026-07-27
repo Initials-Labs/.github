@@ -1,0 +1,6 @@
+{
+    "name": "Umbraco Cloud Deploy",
+    "description": "Deploy an Umbraco Cloud project via the shared initials-labs/umbraco-cloud-workflows pipeline. Triggers on version tag pushes. Requires cloud.gitignore, PROJECT_ID + UMBRACO_CLOUD_API_KEY secrets, and a TARGET_ENVIRONMENT_ALIAS variable.",
+    "categories": ["Deployment"],
+    "filePatterns": []
+}
